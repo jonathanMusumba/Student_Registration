@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        input[type="file"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        select[multiple] {
+            height: auto;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .col {
+            width: calc(50% - 10px);
+            margin-right: 20px;
+        }
+        
+        .col:last-child {
+            margin-right: 0;
+        }
+        
+        .photo-preview {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .photo-preview img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Student Information</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <label for="regNumber">Registration Number:</label>
+                    <input type="text" id="regNumber" name="regNumber" required>
+                </div>
+                <div class="col">
+                    <label for="nin">National Identification Number (NIN):</label>
+                    <input type="text" id="nin" name="nin" maxlength="14" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="col">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="col">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Gender:</label>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="M" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="F" required>
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="course">Course:</label>
+                    <select id="course" name="course" onchange="populateYearAndSemester()" required>
+                        <option value="">Select Course</option>
+                        <!-- Populate options dynamically from the database -->
+                        <!-- Dummy options for demonstration -->
+                        <option value="course1">Course 1</option>
+                        <option value="course2">Course 2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="yearOfStudy">Year of Study:</label>
+                    <select id="yearOfStudy" name="yearOfStudy" required>
+                        <option value="">Select Year of Study</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="semester">Semester:</label>
+                    <select id="semester" name="semester" required>
+                        <option value="">Select Semester</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="courseUnits">Course Units:</label>
+                    <table id="courseUnitsTable">
+                        <thead>
+                            <tr>
+                                <th>Sn</th>
+                                <th>Course Unit Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="courseUnitsBody">
+                            <!-- Course units will be populated here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="photo-preview" id="photoPreview"></div>
+                    <label for="photo">Photo:</label>
+                    <input type="file" id="photo" name="photo" onchange="previewPhoto(event)" accept="image/*">
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="button">Update</button>
+                <a href="view_student_info.html" class="button">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript code here
+        function populateYearAndSemester() {
+            // Dummy data for demonstration
+            var years = ["1", "2", "3", "4"];
+            var semesters = ["1", "2"];
+
+            var yearDropdown = document.getElementById("yearOfStudy");
+            yearDropdown.innerHTML = "<option value=''>Select Year of Study</option>";
+            for (var i = 0; i < years.length; i++) {
+                yearDropdown.innerHTML += "<option value='" + years[i] + "'>" + years[i] + "</option>";
+            }
+
+            var semesterDropdown = document.getElementById("semester");
+            semesterDropdown.innerHTML = "<option value=''>Select Semester</option>";
+            for (var j = 0; j < semesters.length; j++) {
+                semesterDropdown.innerHTML += "<option value='" + semesters[j] + "'>" + semesters[j] + "</option>";
+            }
+
+            // Trigger change event on year of study dropdown to populate course units
+            populateCourseUnits();
+        }
+
+        function populateCourseUnits() {
+            // Dummy data for demonstration
+            var courseUnits = ["Course Unit 1", "Course Unit 2", "Course Unit 3", "Course Unit 4", "Course Unit 5", "Course Unit 6", "Course Unit 7"];
+            var courseUnitsBody = document.getElementById("courseUnitsBody");
+            courseUnitsBody.innerHTML = "";
+            for (var k = 0; k < courseUnits.length; k++) {
+                courseUnitsBody.innerHTML += "<tr><td>" + (k + 1) + "</td><td>" + courseUnits[k] + "</td></tr>";
+            }
+        }
+
+        function previewPhoto(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const photoPreview = document.getElementById('photoPreview');
+                photoPreview.innerHTML = '<img src="' + reader.result + '" alt="Photo">';
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+
+</html>

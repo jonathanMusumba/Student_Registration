@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #100cf4;
+            padding-top: 20px;
+        }
+        
+        .sidebar h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            padding: 10px 0;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        
+        .sidebar ul li:hover {
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7), 0 0 20px 10px rgba(255, 255, 255, 0.5), 0 0 30px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        
+        .sidebar ul li:hover a {
+            color: #f8f8f8;
+        }
+        
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .content h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-section {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .admin-profile {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 20px;
+            text-align: center;
+        }
+        
+        .admin-profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            animation: rotateBorder 5s linear infinite;
+            border: 2px solid black;
+            transition: border-color 0.5s;
+        }
+        
+        .admin-profile img:hover {
+            border-color: white;
+        }
+        
+        @keyframes rotateBorder {
+            0% {
+                border-color: black;
+            }
+            50% {
+                border-color: white;
+            }
+            100% {
+                border-color: black;
+            }
+        }
+        
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .column {
+            width: calc(33.33% - 10px);
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .notes-board {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="#students">Students</a></li>
+            <li><a href="#lecturers">Lecturers</a></li>
+            <li><a href="#courses">Courses</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="welcome-section">
+            <p>Welcome, <strong>Admin Name</strong></p>
+            <div class="admin-profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Admin Profile Picture">
+            </div>
+        </div>
+        <h2>Dashboard Overview</h2>
+        <div class="columns">
+            <div class="column">
+                <h3>Students</h3>
+                <!-- Display student information or provide options for managing students -->
+            </div>
+            <div class="column">
+                <h3>Lecturers</h3>
+                <!-- Display lecturer information or provide options for managing lecturers -->
+            </div>
+            <div class="column">
+                <h3>Courses</h3>
+                <!-- Display course information or provide options for managing courses -->
+            </div>
+        </div>
+        <div class="notes-board">
+            <h3>Notes Board</h3>
+            <!-- Add notes board content here -->
+        </div>
+    </div>
+</body>
+
+</html>

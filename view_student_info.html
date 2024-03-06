@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .student-info p {
+            margin-bottom: 10px;
+        }
+        
+        .photo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .photo-container img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        
+        .button:hover {
+            background-color: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Information</h1>
+        <div class="student-info">
+            <p><strong>Registration Number:</strong> REG001</p>
+            <p><strong>Full Name:</strong> John Doe Smith</p>
+            <p><strong>Date of Birth:</strong> 1990-05-15</p>
+            <p><strong>Age:</strong> 32</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Course:</strong> Computer Science</p>
+            <p><strong>Year of Study:</strong> 3</p>
+            <p><strong>Semester:</strong> 2</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sn</th>
+                        <th>Course Unit Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Unit 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Unit 2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Unit 3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>National Identification Number (NIN):</strong> 12345678901234</p>
+            <div class="photo-container">
+                <img src="path/to/photo.jpg" alt="Student Photo">
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="edit_student_info.html" class="button">Edit Information</a>
+            <a href="index.html" class="button">Go to Home</a>
+            <a href="admin_login.html" class="button">Admin Login</a>
+        </div>
+    </div>
+</body>
+
+</html>
